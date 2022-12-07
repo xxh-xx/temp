@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import router from '../../router/router';
 import ProductList from '../product/ProductList.vue';
 
 const displayImg = new URL('../../assets/images/hero-merch.png', import.meta.url).href;
+
+const toAllProduct = () => {
+  router.push('/products');
+};
 </script>
 
 <template>
@@ -29,7 +34,7 @@ const displayImg = new URL('../../assets/images/hero-merch.png', import.meta.url
             <div class="title">
                 <div class="left">Featured</div>
                 <div class="right">
-                    <el-link type="info" :underline="false"  href="/products">
+                    <el-link type="info" :underline="false" @click="toAllProduct">
                         Browse all products
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-Rightarrow"></use>

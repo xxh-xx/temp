@@ -9,6 +9,7 @@ import { IProduct } from '../../interfaces/IProduct';
 import ProductList from './ProductList.vue';
 import { addItem } from '../../apis/cart';
 import { useCartStore } from '../../pinia/pinia';
+import router from '../../router/router';
 
 const productId = defineProps<{ id: string }>();
 
@@ -90,6 +91,10 @@ const setShow = () => {
 };
 
 setShow();
+
+const toAllProduct = () => {
+  router.push('/products');
+};
 </script>
 
 <template>
@@ -181,7 +186,7 @@ setShow();
       <div class="title">
         <div class="left">You might also like</div>
         <div class="right">
-          <el-link type="info" :underline="false" href="/products">
+          <el-link type="info" :underline="false" @click="toAllProduct">
             Browse all products
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-Rightarrow"></use>
